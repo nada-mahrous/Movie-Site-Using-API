@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>movie app</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display" rel="stylesheet">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- spinner loading (css3 spinner) -->
+    <section id="loading">
+
+        <div class="spinner">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </section>
+
+
+
+    <!-- side nav -->
+    <section id="sidenav">
+
+        <!-- side nav fixed -->
+        <div class="strip-header-nav">
+
+            <div class="strip-logo">
+                <img src="images/logo.png">
+            </div>
+            <div class="strip-toggel-menu">
+                <i class="fa fa-align-justify"></i>
+            </div>
+
+            <div class="strip-social-icon">
+                <div class="strip-lang">
+                    <span>
+                        <i class="fas fa-globe"></i>
+                    </span>
+                </div>
+                <div class="strip-share">
+                    <span>
+                        <i class="fas fa-share-alt"></i>
+                    </span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- side nav content when showen -->
+        <div class="nav-tab-menu">
+            <div class="nav-item">
+                <ul>
+                    <li id="item item1" onclick="filterType('now-playing')" data-type="now-playing" class="item1 item">
+                        <a class="nav-category">Now playing</a>
+                    </li>
+                    <li id="item item2" onclick="filterType('popular')" data-type="popular" class="item2 item"><a
+                            class="nav-category">Popular</a></li>
+                    <li id="item item3" onclick="filterType('top-rated')" data-type="top-rated" class="item3 item"><a
+                            class="nav-category">Top Rated</a></li>
+                    <li id="item item4" onclick="filterType('trending')" data-type="trending" class="item5 item"><a
+                            class="nav-category">Trending</a></li>
+                    <li id="item item5" onclick="filterType('upcoming')" data-type="upcoming" class="item6 item"><a
+                            class="nav-category">Upcoming</a></li>
+                    <li id="item item6" onclick="filterType('contact-us')" data-type="contact-us" class="item6 item"><a
+                            class="nav-category" href="#contact">Contact Us</a></li>
+
+
+                </ul>
+            </div>
+            <div class="nav-social-item">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fas fa-globe"></i></a>
+                <div class="pt-3">
+                    <span>Copyright © 2019 All Rights Reserved.</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- body -->
+    <section id="body" class="pt-5">
+        <!-- search -->
+        <div class="container w-75 myM">
+            <div class="row">
+                <!-- search get movies by word  -->
+                <div class="col-md-6">
+                    <input id="allMovies" class="form-control mb-5 " placeholder="get movies by word...">
+                </div>
+                <!-- search  -->
+                <div class="col-md-6"><input oninput="search(event)" class="form-control " id="word"
+                        placeholder="search...">
+                </div>
+
+            </div>
+        </div>
+        <!-- idk -->
+        <section class="container text-center  ">
+
+            <div class="row" id="res">
+
+
+            </div>
+
+
+        </section>
+        <!-- 3rd el aflam -->
+        <section class="container text-center my-1 py-2 ">
+
+            <div class="row" id="rowData">
+                
+
+            </div>
+
+
+        </section>
+
+
+    </section>
+
+
+
+
+    <!-- contactUs section -->
+    <section id="contact" class="contact container myM w-75 mx-auto my-5 ">
+        <h2 class="text-light my-5">ContacUs...</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group name">
+                    <input class="form-control" id="name" placeholder="Enter Your first name">
+                    <div class="alert alert-danger" id="namealert" role="alert">
+                        Your Name is not valid
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group email">
+                    <input class="form-control" id="email" placeholder="Enter Email">
+                    <div class="alert alert-danger" id="emailalert" role="alert">
+                        entre valid email
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group phone">
+                    <input class="form-control" id="phone" placeholder="Enter phone">
+                    <div class="alert alert-danger" id="phonealert" role="alert">
+                        entre valid phone
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group age">
+                    <input class="form-control" id="age" placeholder="Enter Age">
+                    <div class="alert alert-danger" id="agealert" role="alert">
+                        entre valid Age
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group password">
+                    <input class="form-control" type="password" id="password" placeholder="Enter Password">
+                    <div class="alert alert-danger" id="passwordalert" role="alert">
+                        entre valid password *Minimum eight characters, at least one letter and one number:*
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control" type="password" id="rePassword" placeholder="Enter RePassword">
+                    <div class="alert alert-danger" id="repasswordalert" role="alert">
+                        entre valid Repassword
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <button type="submit" disabled id="submitBtn" class="my-3 btn btn-outline-danger">Submit</button>
+
+    </section>
+
+
+
+
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>
